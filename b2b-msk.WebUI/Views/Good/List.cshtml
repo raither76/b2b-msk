@@ -1,0 +1,17 @@
+﻿@using b2b_msk.WebUI.Models
+@using b2b_msk.WebUI.HtmlHelpers
+@model GoodsListViewModel
+
+@{
+    ViewBag.Title = "ViewGoods";
+}
+
+<h2>ViewGoods</h2>
+@foreach (var p in @Model.Goods)
+{
+    @Html.Partial("GoodsDescription", p)
+}
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.GoodPagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
+
